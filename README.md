@@ -10,7 +10,7 @@ Built for [Violet Echoes](https://github.com/grimnirthe/VioletEchoes). Meant to 
 | --- | --- |
 | **Nymph** | Repo, UI, chips, prompt builder |
 | **Velora** | Cloth / hem / rain — `src/data/velora-wardrobe-walk-scale.json` |
-| **Loom** | Lock contract — [`scale-lock.contract.md`](./scale-lock.contract.md) + `src/data/scale-lock.contract.json` |
+| **Loom** | Camera, ground, ruler, pair-fail — [`docs/LOOM-CAMERA-LOCK.md`](./docs/LOOM-CAMERA-LOCK.md) + `src/lib/loom-camera.ts` |
 | **Site** | One door. Not a second locker. |
 
 ## What it does
@@ -25,18 +25,20 @@ Built for [Violet Echoes](https://github.com/grimnirthe/VioletEchoes). Meant to 
 
 Not Comfy. Identity stills only — adult tags refused.
 
+Hard pair (Nymph + Kitty + Sit): three legal chips, not just a red 1. Make still / I2V stay off until one of those chips is picked.
+
 ## For Loom
 
 Start here:
 
-- [`scale-lock.contract.md`](./scale-lock.contract.md) — lock law. You write. Nymph commits.
-- `src/data/scale-lock.contract.json` — drop-in the UI imports
+- [`docs/LOOM-CAMERA-LOCK.md`](./docs/LOOM-CAMERA-LOCK.md) — camera / ground / pair law
+- `src/data/loom-camera-lock.json` — same, importable
+- `src/lib/loom-camera.ts` — `loomCheck` + `loomInject` (no roster)
 - `src/data/loom-character-sheet-template.json` — plate spec
 - `src/lib/still.ts` — sheet-still compose
-- `src/lib/generate.ts` — Build / Check compose
+- `src/lib/generate.ts` — Build compose (`loomInject` after Velora city, before names)
 - `src/lib/velora-scale.ts` — wardrobe + city scale invert
 - `src/lib/locks.ts` — Kitty 16-inch lock
-- `src/lib/poses.ts` — pose jobs
 
 Family master sheets stay in the live app, not this public dump. See [CONTENT.md](./CONTENT.md).
 

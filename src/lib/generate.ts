@@ -62,6 +62,7 @@ export function buildFromSheets(
   poseId?: string,
   wardrobe?: string,
   cityInject?: string,
+  cameraInject?: string,
 ): string {
   if (!selected.length) return "";
   const scales = selected.map((s) => scaleLine(s.char, s.modeId)).filter(Boolean);
@@ -76,6 +77,7 @@ export function buildFromSheets(
     scene.trim(),
     cityInject ? "" : wardrobe?.trim(),
     cityInject?.trim(),
+    cameraInject?.trim(),
   ].filter(Boolean);
   const place = extras.join(", ");
   const kitty = selected.find((s) => s.char.id === "kitty");
