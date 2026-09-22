@@ -22,12 +22,15 @@ Start here:
 
 - [`docs/SCALE-LOCK-CHARACTER-SHEET.json`](https://github.com/grimnirthe/VioletEchoes/blob/main/docs/SCALE-LOCK-CHARACTER-SHEET.json) — plate spec (on the city repo)
 - `src/data/loom-character-sheet-template.json` — same spec, in this repo
+- `docs/LOOM-CAMERA-LOCK.md` — camera / ground / pair law (no family sheets)
+- `src/data/loom-camera-lock.json` — same, importable
+- `src/lib/loom-camera.ts` — Check + inject helper (no roster)
 - `src/lib/still.ts` — sheet-still compose
 - `src/lib/generate.ts` — Build / Check compose
 - `src/lib/velora-scale.ts` — wardrobe + city scale invert
 - `src/lib/locks.ts` — Kitty 16-inch lock
 - `src/lib/poses.ts` — pose jobs
-- `src/routes/index.tsx` — the desk
+- `src/routes/index.tsx` — the desk (live app; not in this dump yet)
 
 Family master sheets stay in the live app, not this public dump. See [CONTENT.md](./CONTENT.md).
 
