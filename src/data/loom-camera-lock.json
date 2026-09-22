@@ -1,0 +1,125 @@
+{
+  "id": "loom-camera-lock",
+  "title": "Loom · camera / ground / pair law",
+  "by": "Loom",
+  "lane": "visual commons · identity stills",
+  "version": "1.0",
+  "date": "2026-09-22",
+  "kind": "camera-lock",
+  "note": "No family sheets. Import in Scale Lock without roster. Velora owns cloth. Kitty owns 16-inch look. This owns camera height, ground, ruler, pair-fail, still-before-motion.",
+  "law": "Scale first, look second. Camera height is law. One ground. One ruler. One body per name. Kitty is inches; adults are feet. If a chair is in the shot, say who sits and who stands.",
+  "scaleInvert": {
+    "kitty": "16-inch figure ON the chair seat. Chair back taller than her head.",
+    "wardrobe": "adult human IN the chair, feet on the floor.",
+    "rule": "Never load Kitty chair/palm/shin bible on a wardrobe Build that sits IN the chair."
+  },
+  "camera": {
+    "walk": "CAMERA: locked tripod at adult chest. Not hero-low. Not aerial.",
+    "street": "CAMERA: at street, not aerial god-shot, not dollhouse. Lamps at head height.",
+    "lookbook": "CAMERA: at chest. Cloth first. Locked tripod.",
+    "partner": "CAMERA: at adult chest. Door or second figure in frame so the shell cannot inflate.",
+    "node": "CAMERA: locked tripod wide. Building is the subject. Humans small.",
+    "kitty-personal": "CAMERA: full adult wooden chair in frame. Seat is the ruler. Optional seat-height. Not hero-low.",
+    "kitty-palm": "CAMERA: adult eye-line. Palm and forearm in frame. Not worm's-eye.",
+    "kitty-amazon": "CAMERA: adult eye-line. Both full body. Floor visible.",
+    "kitty-sheet": "CAMERA: even distance. Adult and 16-inch figure, same floor, full bodies.",
+    "kitty-look": "CAMERA: even studio. No hero angle. Solo plate.",
+    "sheet": "CAMERA: even studio light, locked, no hero angle."
+  },
+  "ground": {
+    "adult": "GROUND: all adult feet share one floor. Contact shadows. Hem clears the wet. No floating soles. No sinking into asphalt.",
+    "kitty-personal": "GROUND: Kitty's paws on the wooden seat. Chair on the floor. She does not share the street with adult feet unless an adult stands beside the chair.",
+    "kitty-palm": "GROUND: one contact — standing in an adult open palm. Adult feet on the floor. No second floor for her.",
+    "kitty-amazon": "GROUND: she stands at the shin. Adult feet on the floor. Both full body.",
+    "kitty-sheet": "GROUND: both full body, feet on the same floor, 16-inch difference obvious.",
+    "sheet": "GROUND: plain dark studio ground. One person."
+  },
+  "rulers": [
+    { "id": "door-handle", "line": "RULER: door handle at adult hip. One ruler only." },
+    { "id": "chair-seat", "line": "RULER: adult wooden chair; seat at adult mid-thigh; Kitty stands ON that seat. One ruler only." },
+    { "id": "curb", "line": "RULER: curb to adult ankle. One ruler only." },
+    { "id": "cup-palm", "line": "RULER: cup or strap in a real adult palm, not swallowed. One ruler only." },
+    { "id": "forearm", "line": "RULER: whole Kitty shorter than the adult forearm; head no larger than a knuckle. One ruler only." },
+    { "id": "lamp", "line": "RULER: porch lamp at adult head height. One ruler only." }
+  ],
+  "technique": {
+    "wet-street": "TECHNIQUE: locked tripod, rain as depth, practical neon rim.",
+    "wood-door": "TECHNIQUE: warm practical, door as ruler.",
+    "bay": "TECHNIQUE: single hard key from the bay door.",
+    "eave": "TECHNIQUE: eave just above head, rain is weather.",
+    "walk": "TECHNIQUE: fabric practicals, camera at chest.",
+    "lookbook": "TECHNIQUE: fabric practicals, camera at chest.",
+    "street": "TECHNIQUE: locked tripod, rain as depth.",
+    "partner": "TECHNIQUE: locked tripod, door in frame as scale.",
+    "node": "TECHNIQUE: locked tripod wide, one violet band at storey-line.",
+    "sheet": "TECHNIQUE: even studio light, plain dark ground."
+  },
+  "i2v": {
+    "gate": "Motion copy off until still has shared floor, one camera height, one ruler, identity lock.",
+    "moves": ["locked tripod", "slow push", "slight handheld"],
+    "never": ["orbit", "hero-low whip", "aerial"]
+  },
+  "negativeScale": "no toddler, no giantism, no size drift, no extra people, no second chair, no floating feet, no readable brands, no extra limbs, no warped furniture scale, no figurine on the cushion, no dollhouse, no giantess",
+  "pairs": {
+    "ok": [
+      { "id": "adults-same-floor", "when": "two adults, no kitty", "camera": "eye-line of taller" },
+      { "id": "kitty-palm", "when": "kitty mode palm + adult", "camera": "kitty-palm" },
+      { "id": "kitty-shin", "when": "kitty mode amazon + adult", "camera": "kitty-amazon" },
+      { "id": "kitty-plate", "when": "kitty mode sheet + adult", "camera": "kitty-sheet" },
+      { "id": "kitty-chair-beside", "when": "kitty mode personal + adult standing, wardrobe pose not sit", "camera": "kitty-personal" }
+    ],
+    "hard": [
+      {
+        "id": "in-chair-plus-on-seat",
+        "when": "kitty personal + adult + wardrobe sit, or pose sit",
+        "message": "Adult IN the chair and Kitty ON that seat are two bibles. Do not mix.",
+        "fixes": [
+          "Kitty only — solo still, uncheck the adult",
+          "Adult in chair — uncheck Kitty",
+          "Kitty on seat, adult standing beside — switch pose off Sit, hand on the backrest"
+        ]
+      },
+      {
+        "id": "kitty-plus-walk-sit",
+        "when": "injectCity and cityFightsKitty and kitty and sit",
+        "message": "Walk / street / lookbook / partner sit is IN-chair. Kitty personal is ON-seat.",
+        "fixes": [
+          "Turn off City scale",
+          "Uncheck Kitty",
+          "Keep City, switch wardrobe pose to Stand or Three-quarter, adult beside the chair"
+        ]
+      },
+      {
+        "id": "two-bodies-one-name",
+        "when": "two height modes of the same character",
+        "message": "One body lock per name. 5'2\" personal and 6'6\" amazon are not a lineup.",
+        "fixes": ["Pick one height mode"]
+      },
+      {
+        "id": "sheet-crowd",
+        "when": "pose sheet and selectedCount != 1",
+        "message": "Character sheet is one person. Same face, same cloth, four views.",
+        "fixes": ["Leave one name checked"]
+      }
+    ],
+    "warn": [
+      {
+        "id": "node-plus-kitty",
+        "when": "cityScaleId node and kitty",
+        "message": "Node plates dwarf humans. Don't also load walk-scale invert."
+      },
+      {
+        "id": "i2v-without-still",
+        "when": "isI2v and not stillOk",
+        "message": "Still first. Motion after the scale reads."
+      }
+    ]
+  },
+  "checkOrder": [
+    "chair invert (IN vs ON)",
+    "camera height missing or doubled",
+    "extra people / identity break",
+    "adult tags",
+    "size-drift words: giantess, dollhouse, same-height couple, figurine on the cushion"
+  ]
+}
