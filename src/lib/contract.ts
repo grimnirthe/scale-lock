@@ -16,6 +16,8 @@ export type PairFail = {
 export type Ruler = {
   id: string;
   line: string;
+  rides?: string[];
+  inject?: boolean;
 };
 
 export function pairFail(id: string): PairFail | undefined {
@@ -52,6 +54,19 @@ export function mentionedRulers(text: string): Ruler[] {
       .toLowerCase();
     return lead.length > 8 && t.includes(lead);
   });
+}
+
+export function rulerByBible(): Record<string, string | null> {
+  return ((contract as { rulerByBible?: Record<string, string | null> }).rulerByBible) ?? {};
+}
+
+/** Named stick for this bible, if it injects. */
+export function rulerForBible(bible: string): Ruler | undefined {
+  const id = rulerByBible()[bible];
+  if (!id) return undefined;
+  const r = rulers().find((x) => x.id === id);
+  if (!r || r.inject === false) return undefined;
+  return r;
 }
 
 export function scalePack(): string {

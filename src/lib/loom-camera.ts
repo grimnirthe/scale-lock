@@ -1,6 +1,6 @@
 /** Camera / ground / inject. Pair-fail copy lives in scale-lock.contract.json. */
 
-import { LOCK, pairFail } from "./contract";
+import { LOCK, pairFail, rulerForBible } from "./contract";
 import { cityFightsKitty, type ScaleId } from "./velora-scale";
 
 export type LoomIssue = {
@@ -70,6 +70,18 @@ function groundKey(p: LoomPick): string {
   return "always";
 }
 
+function rulerBible(p: LoomPick): string {
+  if (p.poseId === "sheet" || p.kittyMode === "look") return "lookOnly";
+  if (p.hasKitty) return cameraKey(p);
+  if (sitting(p)) return "adultInChair";
+  return p.cityScaleId;
+}
+
+export function rulerLine(p: LoomPick): string {
+  const r = rulerForBible(rulerBible(p));
+  return r?.line ?? "";
+}
+
 export function loomCheck(p: LoomPick): LoomIssue[] {
   const out: LoomIssue[] = [];
   const kittyOnSeat =
@@ -114,7 +126,9 @@ export function techniqueLine(p: LoomPick): string {
 }
 
 export function loomInject(p: LoomPick): string {
-  return [cameraLine(p), groundLine(p), techniqueLine(p)].filter(Boolean).join(" ");
+  return [cameraLine(p), groundLine(p), techniqueLine(p), rulerLine(p)]
+    .filter(Boolean)
+    .join(" ");
 }
 
 export function scaleNegative(_hasKitty: boolean): string {
