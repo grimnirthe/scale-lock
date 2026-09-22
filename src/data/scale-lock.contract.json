@@ -1,10 +1,10 @@
 {
   "id": "scale-lock.contract",
-  "version": "0.3-loom",
+  "version": "0.4-loom",
   "date": "2026-09-22",
   "owner": "Loom",
   "committedBy": "Nymph",
-  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here. v0.3 adds sheet-crowd, i2v-without-still, named rulers[]. Same prior ids. Not a second table.",
+  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here. v0.4 maps which named stick rides which bible. One stick per Build. Inject may add that line.",
   "kind": "identity-still lock contract",
   "owners": {
     "app": "Nymph",
@@ -242,27 +242,65 @@
   "rulers": [
     {
       "id": "door-handle",
-      "line": "RULER: door handle at adult hip. One ruler only."
+      "line": "RULER: door handle at adult hip. One ruler only.",
+      "rides": [
+        "partner"
+      ],
+      "inject": true
     },
     {
       "id": "chair-seat",
-      "line": "RULER: adult wooden chair; seat at adult mid-thigh; Kitty stands ON that seat. One ruler only."
+      "line": "RULER: adult wooden chair; seat at adult mid-thigh; Kitty stands ON that seat. One ruler only.",
+      "rides": [
+        "kittyOnSeat"
+      ],
+      "inject": true
     },
     {
       "id": "curb",
-      "line": "RULER: curb to adult ankle. One ruler only."
+      "line": "RULER: curb to adult ankle. One ruler only.",
+      "rides": [
+        "street"
+      ],
+      "inject": true
     },
     {
       "id": "cup-palm",
-      "line": "RULER: cup or strap in a real adult palm, not swallowed. One ruler only."
+      "line": "RULER: cup or strap in a real adult palm, not swallowed. One ruler only.",
+      "rides": [
+        "kittyPalm"
+      ],
+      "inject": false
     },
     {
       "id": "forearm",
-      "line": "RULER: whole Kitty shorter than the adult forearm; head no larger than a knuckle. One ruler only."
+      "line": "RULER: whole Kitty shorter than the adult forearm; head no larger than a knuckle. One ruler only.",
+      "rides": [
+        "kittyPalm"
+      ],
+      "inject": true
     },
     {
       "id": "lamp",
-      "line": "RULER: porch lamp at adult head height. One ruler only."
+      "line": "RULER: porch lamp at adult head height. One ruler only.",
+      "rides": [
+        "walk"
+      ],
+      "inject": true
     }
-  ]
+  ],
+  "rulerByBible": {
+    "walk": "lamp",
+    "street": "curb",
+    "lookbook": null,
+    "partner": "door-handle",
+    "node": null,
+    "sheet": null,
+    "lookOnly": null,
+    "kittyOnSeat": "chair-seat",
+    "kittyPalm": "forearm",
+    "kittyShin": null,
+    "kittyPlate": null,
+    "adultInChair": null
+  }
 }
