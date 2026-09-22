@@ -1,10 +1,10 @@
 {
   "id": "scale-lock.contract",
-  "version": "0.1-as-shipped",
+  "version": "0.2-loom",
   "date": "2026-09-22",
   "owner": "Loom",
   "committedBy": "Nymph",
-  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here.",
+  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here. v0 was as-shipped from the live app. v0.2 fills Kitty camera holes, pair-fail fix chips, I2V one-move. Same ids. Not a second table.",
   "kind": "identity-still lock contract",
   "owners": {
     "app": "Nymph",
@@ -21,10 +21,15 @@
     "lookbook": "Chest height. Cloth first. Body fills the frame. Architecture is weather only.",
     "partner": "Walking-scale shell beside a person. Door or second figure in frame so the shell cannot inflate.",
     "node": "Building is the subject. Humans small. One violet band at storey-line.",
-    "sheet": "Studio, even light, plain dark ground. Four views on one plate. Same camera distance on body panels."
+    "sheet": "Studio, even light, plain dark ground. Four views on one plate. Same camera distance on body panels.",
+    "kittyOnSeat": "Include the full adult wooden chair. Seat is the ruler. Not hero-low. She is two hands tall.",
+    "kittyPalm": "Adult eye-line. Palm and forearm in frame. Not worm's-eye.",
+    "kittyShin": "Adult eye-line. Both full body. Floor visible. Head below mid-thigh.",
+    "kittyPlate": "Same floor, even distance, both full body. 16-inch difference obvious.",
+    "never": "One camera height per prompt. No hero-low on 16-inch. No aerial. No orbit."
   },
   "ground": {
-    "always": "Full body, floor visible.",
+    "always": "Full body, floor visible. Contact shadows. No floating soles.",
     "kittyOnSeat": "16-inch figure ON the chair seat. Chair back taller than her head. Chair is human-sized. She is not sitting in it like an adult.",
     "adultInChair": "Walk-in IN the chair. Back against the backrest. Feet on the floor. Not perched on the cushion like a figurine.",
     "kittyPalm": "Whole body shorter than an adult forearm. Head no larger than a knuckle. Solo ruler.",
@@ -43,87 +48,146 @@
       "a": "Kitty ON the seat",
       "b": "adult IN the chair",
       "severity": "error",
-      "detail": "Two bibles. One Build. Split them."
+      "detail": "Two bibles. One Build. Split them.",
+      "fixes": [
+        "Kitty only — uncheck the adult",
+        "Adult in chair — uncheck Kitty",
+        "Kitty on seat, adult standing beside — pose not Sit, hand on the backrest"
+      ]
     },
     {
       "id": "city-kitty-fight",
       "a": "city walk / street / lookbook / partner",
       "b": "Kitty 16-inch scale",
       "severity": "error",
-      "detail": "Walk-in vs 16-inch. Do not mix."
+      "detail": "Walk-in vs 16-inch. Do not mix.",
+      "fixes": [
+        "Turn off City scale",
+        "Uncheck Kitty",
+        "Keep City only if pose is Stand or Three-quarter and adult is beside the chair, not in it"
+      ]
     },
     {
       "id": "look-has-ruler",
       "a": "look-only",
       "b": "chair / palm / knee",
       "severity": "error",
-      "detail": "Look-only is identity, not scale."
+      "detail": "Look-only is identity, not scale.",
+      "fixes": [
+        "Switch off look-only, or drop chair/palm/knee"
+      ]
     },
     {
       "id": "look-has-partner",
       "a": "look-only",
       "b": "second full-size body",
       "severity": "error",
-      "detail": "A partner is a ruler. Switch to shin or plate."
+      "detail": "A partner is a ruler. Switch to shin or plate.",
+      "fixes": [
+        "Switch to shin or plate",
+        "Or uncheck the partner"
+      ]
     },
     {
       "id": "ruler-fight",
       "a": "chair",
       "b": "knee or palm",
       "severity": "error",
-      "detail": "One primary ref."
+      "detail": "One primary ref.",
+      "fixes": [
+        "One primary ref — chair or palm or knee"
+      ]
     },
     {
       "id": "palm-has-partner",
       "a": "palm bible",
       "b": "second full-size body",
       "severity": "error",
-      "detail": "Palm is solo."
+      "detail": "Palm is solo.",
+      "fixes": [
+        "Palm is solo. Uncheck the second body"
+      ]
     },
     {
       "id": "scale-pile",
       "a": "tiny + giant + toys",
       "b": "one frame",
       "severity": "error",
-      "detail": "Three competing scales."
+      "detail": "Three competing scales.",
+      "fixes": [
+        "Pick one scale bible"
+      ]
     },
     {
       "id": "cat-flip",
       "a": "catgirl",
       "b": "cat",
       "severity": "error",
-      "detail": "Classic flip. She is cat-sized, or drop the extra cat."
+      "detail": "Classic flip. She is cat-sized, or drop the extra cat.",
+      "fixes": [
+        "She is cat-sized, or drop the extra cat"
+      ]
     },
     {
       "id": "nymph-mode-fight",
       "a": "5'2\"",
       "b": "6'0\" or 6'6\"",
       "severity": "error",
-      "detail": "One Nymph height per prompt."
+      "detail": "One Nymph height per prompt.",
+      "fixes": [
+        "Pick one Nymph height"
+      ]
     },
     {
       "id": "city-node-kitty",
       "a": "node",
       "b": "Kitty",
       "severity": "warn",
-      "detail": "Node makes humans small. She vanishes unless she is the subject."
+      "detail": "Node makes humans small. She vanishes unless she is the subject.",
+      "fixes": [
+        "Make her the subject, or drop Kitty from a node plate"
+      ]
     }
   ],
   "stillToI2v": {
     "identityInFrameOne": true,
     "stripScaleFromMotion": true,
     "refuseAdultTagsOnStill": true,
-    "note": "The still is the scale. I2V is motion only. Do not re-argue tiny/height in the motion prompt."
+    "note": "The still is the scale. I2V is motion only. Do not re-argue tiny/height in the motion prompt. One camera move. No orbit until the still reads.",
+    "oneMove": true,
+    "moves": [
+      "locked tripod",
+      "slow push",
+      "slight handheld"
+    ]
   },
   "paste": {
     "imagine": {
-      "keep": ["plain sentences", "ruler", "look", "cloth", "pose"],
-      "strip": ["LoRA tags", "score_*", "BREAK as a token", "emphasis weights", "lone adult token"],
+      "keep": [
+        "plain sentences",
+        "ruler",
+        "look",
+        "cloth",
+        "pose"
+      ],
+      "strip": [
+        "LoRA tags",
+        "score_*",
+        "BREAK as a token",
+        "emphasis weights",
+        "lone adult token"
+      ],
       "lead": "Photorealistic cinematic still, full body, floor visible, sharp focus.",
       "nsfwGate": "Identity stills only. Strip adult tags and try again."
     },
     "comfy": {
-      "keep": ["score_9 / score_8_up / score_7_up", "BREAK", "weighted tags", "LoRAs", "negative pack"],
+      "keep": [
+        "score_9 / score_8_up / score_7_up",
+        "BREAK",
+        "weighted tags",
+        "LoRAs",
+        "negative pack"
+      ],
       "order": "scale + identity before BREAK, scene after",
       "tagBudget": 45,
       "note": "Comfy paste is the weighted pack. Imagine paste is the still sentence. Do not feed one to the other."
@@ -132,12 +196,27 @@
   "negative": {
     "base": "blurry, deformed, extra limbs, bad anatomy, cropped, out of frame, text, watermark, child, loli, toddler, baby",
     "kitty": "full-size Chaos Kitty, same-height couple, giantess flip, extra tiny figure, doll, gremlin, miniature doll, human ears, blonde hair, identical second catgirl, cat standing beside identical cat, breast inflation, huge breasts",
-    "cityFromVelora": true
+    "cityFromVelora": true,
+    "scale": "no toddler, no giantism, no size drift, no extra people, no second chair, no floating feet, no readable brands, no extra limbs, no warped furniture scale, no figurine on the cushion, no dollhouse"
   },
   "sheetPlate": {
     "aspect": "16:9",
     "layout": "front / side / back / face",
     "lock": "one person, identical face, identical outfit",
     "source": "src/data/loom-character-sheet-template.json"
-  }
+  },
+  "technique": {
+    "note": "One line after who/where/scale. Not a quality dump.",
+    "wet-street": "locked tripod, rain as depth, practical neon rim",
+    "wood-door": "warm practical, door as ruler",
+    "bay": "single hard key from the bay door",
+    "eave": "eave just above head, rain is weather",
+    "walk": "fabric practicals, camera at chest",
+    "lookbook": "fabric practicals, camera at chest",
+    "street": "locked tripod, rain as depth",
+    "partner": "locked tripod, door in frame as scale",
+    "node": "locked tripod wide, one violet band at storey-line",
+    "sheet": "even studio light, plain dark ground"
+  },
+  "oneCameraHeight": true
 }
