@@ -75,15 +75,6 @@ export function loomCheck(p: LoomPick): LoomIssue[] {
   const kittyOnSeat =
     p.hasKitty && (p.kittyMode === "personal" || !p.kittyMode);
 
-  if (p.poseId === "sheet" && p.selectedCount !== 1) {
-    out.push({
-      level: "hard",
-      code: "sheet-crowd",
-      message: "Character sheet is one person. Same face, same cloth, four views.",
-      fixes: ["Leave one name checked"],
-    });
-  }
-
   if (kittyOnSeat && p.hasAdult && sitting(p)) {
     out.push(issue("seat-vs-chair"));
   } else if (
@@ -97,16 +88,6 @@ export function loomCheck(p: LoomPick): LoomIssue[] {
 
   if (p.injectCity && p.cityScaleId === "node" && p.hasKitty) {
     out.push(issue("city-node-kitty"));
-  }
-
-  if (p.isI2v && !p.stillOk) {
-    const note = (LOCK.stillToI2v as { note: string }).note;
-    out.push({
-      level: "warn",
-      code: "i2v-without-still",
-      message: note,
-      fixes: ["Build a still that passes Check, then open I2V"],
-    });
   }
 
   return out;
