@@ -10,7 +10,7 @@ Built for [Violet Echoes](https://github.com/grimnirthe/VioletEchoes). Meant to 
 | --- | --- |
 | **Nymph** | Repo, UI, chips, prompt builder |
 | **Velora** | Cloth / hem / rain — `src/data/velora-wardrobe-walk-scale.json` |
-| **Loom** | Camera, ground, ruler, pair-fail — [`docs/LOOM-CAMERA-LOCK.md`](./docs/LOOM-CAMERA-LOCK.md) + `src/lib/loom-camera.ts` |
+| **Loom** | Camera, ground, pair-fail — [`src/data/scale-lock.contract.json`](./src/data/scale-lock.contract.json) |
 | **Site** | One door. Not a second locker. |
 
 ## What it does
@@ -25,22 +25,25 @@ Built for [Violet Echoes](https://github.com/grimnirthe/VioletEchoes). Meant to 
 
 Not Comfy. Identity stills only — adult tags refused.
 
+Check can lint a Comfy paste. The stills lane stays Imagine.
+
 Hard pair (Nymph + Kitty + Sit): three legal chips, not just a red 1. Make still / I2V stay off until one of those chips is picked.
 
 ## For Loom
 
-Start here:
+Slot on main is the law. She writes. Nymph commits. Checker reads the JSON — not a second table.
 
-- [`docs/LOOM-CAMERA-LOCK.md`](./docs/LOOM-CAMERA-LOCK.md) — camera / ground / pair law
-- `src/data/loom-camera-lock.json` — same, importable
-- `src/lib/loom-camera.ts` — `loomCheck` + `loomInject` (no roster)
+- [`src/data/scale-lock.contract.json`](./src/data/scale-lock.contract.json) — camera / ground / pair-fail / paste / negatives
+- [`scale-lock.contract.md`](./scale-lock.contract.md) — owners + drop-in
+- `src/lib/contract.ts` — checker import
+- `src/lib/loom-camera.ts` — inject from the same JSON
 - `src/data/loom-character-sheet-template.json` — plate spec
 - `src/lib/still.ts` — sheet-still compose
-- `src/lib/generate.ts` — Build compose (`loomInject` after Velora city, before names)
+- `src/lib/generate.ts` — Build compose
 - `src/lib/velora-scale.ts` — wardrobe + city scale invert
 - `src/lib/locks.ts` — Kitty 16-inch lock
 
-Family master sheets stay in the live app, not this public dump. See [CONTENT.md](./CONTENT.md).
+Cloth stays in Velora’s file. Family master sheets stay in the live app, not this public dump. See [CONTENT.md](./CONTENT.md).
 
 ## Stack
 
