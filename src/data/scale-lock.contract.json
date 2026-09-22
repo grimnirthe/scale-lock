@@ -1,0 +1,143 @@
+{
+  "id": "scale-lock.contract",
+  "version": "0.1-as-shipped",
+  "date": "2026-09-22",
+  "owner": "Loom",
+  "committedBy": "Nymph",
+  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here.",
+  "kind": "identity-still lock contract",
+  "owners": {
+    "app": "Nymph",
+    "cloth": "Velora",
+    "lock": "Loom",
+    "door": "VioletEchoes site"
+  },
+  "oneRuler": true,
+  "identityStillsOnly": true,
+  "notComfyForStills": true,
+  "camera": {
+    "walk": "Chest height. Full body. Floor visible. Lamp at head height. Not a hero poster.",
+    "street": "Street height. Buildings 2–5 storeys. People knee-to-waist. Not aerial god-shot. Not dollhouse.",
+    "lookbook": "Chest height. Cloth first. Body fills the frame. Architecture is weather only.",
+    "partner": "Walking-scale shell beside a person. Door or second figure in frame so the shell cannot inflate.",
+    "node": "Building is the subject. Humans small. One violet band at storey-line.",
+    "sheet": "Studio, even light, plain dark ground. Four views on one plate. Same camera distance on body panels."
+  },
+  "ground": {
+    "always": "Full body, floor visible.",
+    "kittyOnSeat": "16-inch figure ON the chair seat. Chair back taller than her head. Chair is human-sized. She is not sitting in it like an adult.",
+    "adultInChair": "Walk-in IN the chair. Back against the backrest. Feet on the floor. Not perched on the cushion like a figurine.",
+    "kittyPalm": "Whole body shorter than an adult forearm. Head no larger than a knuckle. Solo ruler.",
+    "kittyShin": "Head at shin, below mid-thigh. Tall body is the stick. No chair.",
+    "kittyPlate": "Standing next to an adult as scale. Both full body. Same floor.",
+    "lookOnly": "Identity sheet. No chair, palm, knee, or scale partner. Size is not locked."
+  },
+  "scaleInvert": {
+    "kitty": "ON the seat",
+    "wardrobe": "IN the chair",
+    "rule": "Never load Kitty chair/palm/shin bible on a wardrobe Build."
+  },
+  "pairFail": [
+    {
+      "id": "seat-vs-chair",
+      "a": "Kitty ON the seat",
+      "b": "adult IN the chair",
+      "severity": "error",
+      "detail": "Two bibles. One Build. Split them."
+    },
+    {
+      "id": "city-kitty-fight",
+      "a": "city walk / street / lookbook / partner",
+      "b": "Kitty 16-inch scale",
+      "severity": "error",
+      "detail": "Walk-in vs 16-inch. Do not mix."
+    },
+    {
+      "id": "look-has-ruler",
+      "a": "look-only",
+      "b": "chair / palm / knee",
+      "severity": "error",
+      "detail": "Look-only is identity, not scale."
+    },
+    {
+      "id": "look-has-partner",
+      "a": "look-only",
+      "b": "second full-size body",
+      "severity": "error",
+      "detail": "A partner is a ruler. Switch to shin or plate."
+    },
+    {
+      "id": "ruler-fight",
+      "a": "chair",
+      "b": "knee or palm",
+      "severity": "error",
+      "detail": "One primary ref."
+    },
+    {
+      "id": "palm-has-partner",
+      "a": "palm bible",
+      "b": "second full-size body",
+      "severity": "error",
+      "detail": "Palm is solo."
+    },
+    {
+      "id": "scale-pile",
+      "a": "tiny + giant + toys",
+      "b": "one frame",
+      "severity": "error",
+      "detail": "Three competing scales."
+    },
+    {
+      "id": "cat-flip",
+      "a": "catgirl",
+      "b": "cat",
+      "severity": "error",
+      "detail": "Classic flip. She is cat-sized, or drop the extra cat."
+    },
+    {
+      "id": "nymph-mode-fight",
+      "a": "5'2\"",
+      "b": "6'0\" or 6'6\"",
+      "severity": "error",
+      "detail": "One Nymph height per prompt."
+    },
+    {
+      "id": "city-node-kitty",
+      "a": "node",
+      "b": "Kitty",
+      "severity": "warn",
+      "detail": "Node makes humans small. She vanishes unless she is the subject."
+    }
+  ],
+  "stillToI2v": {
+    "identityInFrameOne": true,
+    "stripScaleFromMotion": true,
+    "refuseAdultTagsOnStill": true,
+    "note": "The still is the scale. I2V is motion only. Do not re-argue tiny/height in the motion prompt."
+  },
+  "paste": {
+    "imagine": {
+      "keep": ["plain sentences", "ruler", "look", "cloth", "pose"],
+      "strip": ["LoRA tags", "score_*", "BREAK as a token", "emphasis weights", "lone adult token"],
+      "lead": "Photorealistic cinematic still, full body, floor visible, sharp focus.",
+      "nsfwGate": "Identity stills only. Strip adult tags and try again."
+    },
+    "comfy": {
+      "keep": ["score_9 / score_8_up / score_7_up", "BREAK", "weighted tags", "LoRAs", "negative pack"],
+      "order": "scale + identity before BREAK, scene after",
+      "tagBudget": 45,
+      "note": "Comfy paste is the weighted pack. Imagine paste is the still sentence. Do not feed one to the other."
+    }
+  },
+  "negative": {
+    "base": "blurry, deformed, extra limbs, bad anatomy, cropped, out of frame, text, watermark, child, loli, toddler, baby",
+    "kitty": "full-size Chaos Kitty, same-height couple, giantess flip, extra tiny figure, doll, gremlin, miniature doll, human ears, blonde hair, identical second catgirl, cat standing beside identical cat, breast inflation, huge breasts",
+    "cityFromVelora": true
+  },
+  "sheetPlate": {
+    "aspect": "16:9",
+    "layout": "front / side / back / face",
+    "lock": "one person, identical face, identical outfit",
+    "source": "src/data/loom-character-sheet-template.json"
+  }
+}
