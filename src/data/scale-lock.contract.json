@@ -1,10 +1,10 @@
 {
   "id": "scale-lock.contract",
-  "version": "0.2-loom",
+  "version": "0.3-loom",
   "date": "2026-09-22",
   "owner": "Loom",
   "committedBy": "Nymph",
-  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here. v0 was as-shipped from the live app. v0.2 fills Kitty camera holes, pair-fail fix chips, I2V one-move. Same ids. Not a second table.",
+  "note": "Lock law the UI must obey. Loom revises. Nymph commits. Cloth lives in velora-wardrobe-walk-scale.json — do not duplicate fabric here. v0.3 adds sheet-crowd, i2v-without-still, named rulers[]. Same prior ids. Not a second table.",
   "kind": "identity-still lock contract",
   "owners": {
     "app": "Nymph",
@@ -147,6 +147,26 @@
       "fixes": [
         "Make her the subject, or drop Kitty from a node plate"
       ]
+    },
+    {
+      "id": "sheet-crowd",
+      "a": "character sheet",
+      "b": "more than one person",
+      "severity": "error",
+      "detail": "One person. Same face, same cloth, four views.",
+      "fixes": [
+        "Leave one name checked"
+      ]
+    },
+    {
+      "id": "i2v-without-still",
+      "a": "I2V",
+      "b": "no passing still",
+      "severity": "warn",
+      "detail": "Still first. Motion after the scale reads.",
+      "fixes": [
+        "Build a still that passes Check, then open I2V"
+      ]
     }
   ],
   "stillToI2v": {
@@ -218,5 +238,31 @@
     "node": "locked tripod wide, one violet band at storey-line",
     "sheet": "even studio light, plain dark ground"
   },
-  "oneCameraHeight": true
+  "oneCameraHeight": true,
+  "rulers": [
+    {
+      "id": "door-handle",
+      "line": "RULER: door handle at adult hip. One ruler only."
+    },
+    {
+      "id": "chair-seat",
+      "line": "RULER: adult wooden chair; seat at adult mid-thigh; Kitty stands ON that seat. One ruler only."
+    },
+    {
+      "id": "curb",
+      "line": "RULER: curb to adult ankle. One ruler only."
+    },
+    {
+      "id": "cup-palm",
+      "line": "RULER: cup or strap in a real adult palm, not swallowed. One ruler only."
+    },
+    {
+      "id": "forearm",
+      "line": "RULER: whole Kitty shorter than the adult forearm; head no larger than a knuckle. One ruler only."
+    },
+    {
+      "id": "lamp",
+      "line": "RULER: porch lamp at adult head height. One ruler only."
+    }
+  ]
 }
