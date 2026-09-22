@@ -1,0 +1,77 @@
+{
+  "id": "scale-lock-character-sheet-v1",
+  "title": "Scale Lock · character sheet plate",
+  "for": "Loom",
+  "lane": "visual commons · identity stills",
+  "version": "1.0",
+  "date": "2026-09-22",
+  "kind": "identity-still character plate",
+  "note": "Hint layer for Scale Lock Sheet still, not Comfy. Identity stills only — refuse adult tags. Do not mix with Kitty 16-inch ON-seat bible on a wardrobe Build.",
+  "aspect": "16:9",
+  "layout": {
+    "plate": "one person, four views on one plate",
+    "views": [
+      "front full body",
+      "side full body",
+      "back full body",
+      "close-up face"
+    ],
+    "studio": "even light, plain dark ground, small labels under each view",
+    "lock": "identical face and identical outfit in every panel"
+  },
+  "compose": [
+    "layout",
+    "scale ruler",
+    "BREAK",
+    "name + height",
+    "look from master sheet JSON",
+    "cloth",
+    "never"
+  ],
+  "scaleInvert": {
+    "kitty": "16-inch figure ON the chair seat. Chair back taller than her head. Other panels are her alone.",
+    "wardrobe": "adult human IN the chair, feet on the floor. Head near porch-lamp height.",
+    "rule": "Never load Kitty chair/palm/shin bible on a wardrobe Build. One person per plate."
+  },
+  "walkLookbook": {
+    "aspect": "2:3",
+    "compose": "Prefix → coat / boots / cloth → pose → job",
+    "sit": "IN the chair",
+    "source": "velora-wardrobe-walk-scale.json"
+  },
+  "masterSheetFields": {
+    "template": "Violet Longhouse Nexus - Master Character Sheet Template v2.2",
+    "physicalForm": [
+      "ageAppearance",
+      "build",
+      "height",
+      "hair",
+      "eyes",
+      "skin",
+      "wings",
+      "uniqueMarkings",
+      "body"
+    ],
+    "signatureOutfit": [
+      "outfitName",
+      "style",
+      "primaryMaterials",
+      "secondaryMaterials",
+      "howItFitsAndMoves"
+    ],
+    "sheetStillUses": "height, hair, eyes, skin, wings, markings, build, outfit — sanitized, cloth first, face secondary"
+  },
+  "never": [
+    "extra people",
+    "costume change between panels",
+    "adult tags",
+    "lingerie-armor",
+    "dollhouse",
+    "giantess",
+    "mecha",
+    "logos",
+    "family likeness",
+    "Night City trailer grit",
+    "16-inch kitty scale on a wardrobe plate"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "velora-wardrobe-walk-scale",
+  "title": "Velora wardrobe · walk scale",
+  "by": "Velora Runeweaver",
+  "lane": "visual commons · Soft Law · Hard Rain",
+  "version": "1.0",
+  "date": "2026-09-22",
+  "aspect": "2:3",
+  "kind": "identity-still-hint",
+  "note": "Hint layer for Make still, not Comfy. Identity stills only — refuse adult tags. Do not mix with Kitty 16-inch ON-seat bible.",
+  "scaleInvert": {
+    "kitty": "16-inch figure ON the chair seat",
+    "wardrobe": "adult human IN the chair, feet on the floor",
+    "rule": "Never load Kitty chair/palm/shin bible on a wardrobe Build."
+  },
+  "master": {
+    "scale": "adult human walking scale. This person sits IN a chair, not on the cushion like a figurine. Head near porch-lamp height. Shin to boot-top is a real calf. Palm holds a cup or strap without swallowing it. A closed door behind them is a full door, not a toy hatch.",
+    "cloth": "lived, mended, honest. Coat mid-calf, hem clears wet stone. Boots scuffed, mud in the welt. Violet is a stitch or cuff seam only — never paint. Gold almost absent. Timber toggles, not chrome logos.",
+    "pose": "weight on one hip or mid-step or seated IN the chair. Not a catalog mannequin. Not armor.",
+    "city": "Streamlined Moderne + Scandinavian + modern Nordic. Settled, not grit. One thin violet band on the building, not the body. Rain is weather.",
+    "never": [
+      "16-inch kitty scale",
+      "figurine on the seat",
+      "dollhouse",
+      "giantess",
+      "mecha",
+      "full-body violet",
+      "family likeness",
+      "logos",
+      "Night City trailer grit",
+      "lingerie-armor",
+      "adult tags"
+    ],
+    "promptPrefix": "SCALE: adult human walking scale. This person sits IN a chair, not on the cushion like a figurine. Head near porch-lamp height. Shin to boot-top is a real calf. Palm holds a cup or strap without swallowing it. A closed door behind them is a full door, not a toy hatch. CLOTH: lived, mended, honest. Coat mid-calf, hem clears wet stone. Boots scuffed, mud in the welt. Violet is a stitch or cuff seam only — never paint. Gold almost absent. Timber toggles, not chrome logos. POSE: weight on one hip or mid-step or seated IN the chair. Not a catalog mannequin. Not armor. NEVER: 16-inch kitty scale, figurine on the seat, dollhouse, giantess, mecha, full-body violet, family likeness, logos, Night City trailer grit, lingerie-armor. ASPECT: 2:3 identity still. Cloth first, face secondary."
+  },
+  "fabric": {
+    "coat": "charcoal or earth water-shed wrap, mid-calf, timber toggles, one visible mend at strap or elbow. Collar can rise. Lining may flash a breath of violet only when open. No plates, no LED suit.",
+    "boots": "matte, ramp-ready, scuffed, mid-calf or just under coat hem. Wet welt. No glowing soles.",
+    "cloth": "wool-blend or canvas over knit. Repair is legal. One cuff may carry a thin violet conduit or unfinished stitch — accent only. Apron or bag if the job needs it; otherwise pockets."
+  },
+  "poses": [
+    { "id": "stand", "label": "Stand", "lock": "Full adult, boots on wet stone, lamp at head height, coat hangs to mid-calf." },
+    { "id": "three-quarter", "label": "Three-quarter", "lock": "Weight on one hip, looking down the street, parcel or cup in real palm." },
+    { "id": "sit", "label": "Sit", "lock": "IN the chair: back against the backrest, feet on the floor, coat draped over the seat not perched on the cushion." },
+    { "id": "mid-step", "label": "Mid-step", "lock": "One foot, eave just above head, helmet or bag in fingers." },
+    { "id": "back-dock", "label": "Back dock", "lock": "Cloth and kit from behind; face not the story." }
+  ],
+  "jobs": [
+    { "id": "hearth-courier", "label": "Hearth courier", "look": "11-ring-courier", "chip": "rain-cut shell, cross-body bag, parcel inside, path-glow cuff+hem only." },
+    { "id": "spine-tech-off-shift", "label": "Spine tech off-shift", "look": "07-spine-night", "chip": "dark coat, apron folded over one arm, seam conduit not a light-suit." },
+    { "id": "market-auntie", "label": "Market auntie", "look": "02-market-finish", "chip": "canvas apron, needle still in unfinished blossom, shawl, paper cup." },
+    { "id": "warrens-walker", "label": "Warrens walker", "look": "03-held-door", "chip": "over-mended sleeve, circuit-thread one cuff, helmet in fingers. Adult early-20s." },
+    { "id": "thornwall-fitter", "label": "Thornwall fitter", "look": "09-mend-kit-outer", "chip": "mend pouches, spare patches, fabric hearing wrap, grease on one glove." }
+  ],
+  "buildHint": {
+    "where": "Make still sits under Positive",
+    "flow": "Paste fabric note before Build. Prompt caches — second click does not spend another.",
+    "compose": [
+      "master.promptPrefix",
+      "fabric.coat",
+      "fabric.boots",
+      "fabric.cloth",
+      "poses[].lock",
+      "jobs[].chip"
+    ]
+  }
+}
