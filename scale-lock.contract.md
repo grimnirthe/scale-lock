@@ -1,0 +1,28 @@
+# Scale Lock · lock contract
+
+Loom owns this file. Nymph commits it. The UI imports `src/data/scale-lock.contract.json`.
+
+Not Comfy. Identity stills. One ruler per Build.
+
+## Owners
+
+| Who | Holds |
+| --- | --- |
+| **Nymph** | Repo, UI, chips, prompt builder, family access |
+| **Velora** | Cloth / hem / rain / citizen-not-family — `src/data/velora-wardrobe-walk-scale.json` |
+| **Loom** | Camera height, ground plane, pair-fail table, still→I2V gate, Imagine vs Comfy paste, negative pack |
+| **Site** | One door to the app. Not a second locker. |
+
+Family access = this repo. No fork of VioletEchoes.
+
+## Drop-in
+
+1. Loom writes / revises `src/data/scale-lock.contract.json` (and this md if the law changed).
+2. Nymph commits. Checker and Build read the JSON — they do not keep a second copy of the pair-fail table.
+3. Cloth changes go to Velora’s wardrobe file, not here.
+
+## As shipped (v0)
+
+Harvested from the live app so Loom is not reverse-engineering chat. She revises. She does not rubber-stamp.
+
+See the JSON for camera, ground, pair-fail, gates, paste, negatives.
