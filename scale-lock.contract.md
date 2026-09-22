@@ -21,8 +21,13 @@ Family access = this repo. No fork of VioletEchoes.
 2. Nymph commits. Checker and Build read the JSON — they do not keep a second copy of the pair-fail table.
 3. Cloth changes go to Velora’s wardrobe file, not here.
 
-## As shipped (v0)
+## Versions
 
-Harvested from the live app so Loom is not reverse-engineering chat. She revises. She does not rubber-stamp.
+| Ver | Who | What |
+| --- | --- | --- |
+| **0.1-as-shipped** | Nymph harvest | Live app → JSON so Loom is not mining chat |
+| **0.2-loom** | Loom revise | Kitty camera holes, pair-fail `fixes`, I2V one-move, scale negatives, one technique line. Same `pairFail.id`s. Cloth untouched. |
+
+She revises. She does not rubber-stamp. Checker reads the JSON — not a second table, not PR #1.
 
 See the JSON for camera, ground, pair-fail, gates, paste, negatives.
